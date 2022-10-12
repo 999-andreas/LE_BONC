@@ -1,3 +1,4 @@
 <?php
+hello
 echo "hello";
 ?>
