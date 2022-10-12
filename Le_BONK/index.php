@@ -1,4 +1,0 @@
-<?php
-hello
-echo "hello";
-?>
