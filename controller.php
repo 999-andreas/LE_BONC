@@ -5,6 +5,8 @@ $annonces = [];
 
 $annonces = get_annonce($db);
 
-var_dump($annonces);
 
-?>
+
+#var_dump($annonces);
+
+?>  
