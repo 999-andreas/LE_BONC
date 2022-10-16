@@ -1,4 +1,7 @@
 <?php
+
+require "co_PDO.php";
+
 /*A FAIRE :
     fonction pour :
         supprimer une annonce
@@ -12,6 +15,7 @@ fitre par critères dans le controller
 
 je sais pas comment on relie les different pages a des fonctions dans le controller...
 */
+
 
 // sera dans "module", les methode seront utilisé par "controller" et envoyé vers "vue"
 class annonce 
@@ -36,18 +40,28 @@ class annonce
     /*donne sous forme de liste tout les elements d'une annonce*/
     function get_annonce() {
       return array($this->titre, $this->prix, $this->description, $this->categories, $this->id);
+      /*la on mettra les requete SQL qui corresponde
+        peut etre retourner un tableau de classe ?*/
     }
 
     
 
   }
+  
+  $recipesStatement = $db->prepare('SELECT * FROM annonces');
 
+  $recipesStatement->execute();
+  $annonces = $recipesStatement->fetchAll();
+
+  var_dump($annonces);
+
+  /*
   $annonce1 = new annonce();
   $annonce1->set_annonce("first_titre","first","first","first","first_id",);
 
   var_dump($annonce1->get_annonce());
   echo "<br>";
   echo $annonce1->titre;
- 
+  */
 
   ?>
