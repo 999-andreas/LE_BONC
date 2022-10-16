@@ -60,11 +60,6 @@ class annonce
 
   }
   
-  $annonces = [];
-
-  $annonces = get_annonce($db);
-
-  var_dump($annonces);
 
   /*
   $annonce1 = new annonce();
