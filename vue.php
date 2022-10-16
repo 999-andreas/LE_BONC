@@ -1,0 +1,6 @@
+<?php
+
+/*affichage futur*/
+
+
+?>

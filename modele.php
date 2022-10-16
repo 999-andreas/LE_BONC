@@ -38,20 +38,31 @@ class annonce
 
     }
     /*donne sous forme de liste tout les elements d'une annonce*/
-    function get_annonce() {
-      return array($this->titre, $this->prix, $this->description, $this->categories, $this->id);
-      /*la on mettra les requete SQL qui corresponde
-        peut etre retourner un tableau de classe ?*/
-    }
 
-    
+  }
+
+  function get_annonce($db) {
+    $annonce_db = $db->prepare('SELECT * FROM annonces');
+    $annonce_db->execute();
+    $annonces_recup = $annonce_db->fetchAll();
+
+    $annonce_class = [];
+
+    for($k=0;$k<count($annonces_recup);$k+=1)
+    {
+        $annonce_class[] = new annonce();
+        $annonce_class[$k]->set_annonce($annonces_recup[$k]['titre'],$annonces_recup[$k]['prix'],$annonces_recup[$k]['description'],$annonces_recup[$k]['categories'],$annonces_recup[$k]['id'],);
+
+    }
+    return $annonce_class; /*et hop c'est lets go*/
+    /*la on mettra les requete SQL qui corresponde
+      peut etre retourner un tableau de classe ?*/
 
   }
   
-  $recipesStatement = $db->prepare('SELECT * FROM annonces');
+  $annonces = [];
 
-  $recipesStatement->execute();
-  $annonces = $recipesStatement->fetchAll();
+  $annonces = get_annonce($db);
 
   var_dump($annonces);
 
