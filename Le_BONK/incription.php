@@ -3,13 +3,17 @@ session_start();
 
 if(isset($_POST["valider"])) {
     extract($_POST);
-    $id = mysqli_connect("127.0.0.1", "root", "", "musee_projet_piscine");
+    $id = new PDO(
+        'mysql:host=localhost;dbname=;charset=utf8',
+        'root',
+        ''
+    );
+    
     //on definit l'accreditation ici pour éviter un probleme de "definition" qui bloquerait le script
     $accreditation = $_SESSION["accreditation"];
     //l'accreditation  est définie de maniere automatoque dans PHPmyadmin, donc on peut le laisser en NULL car non-saisie par l'user
-    $req= "insert into users values (NULL, '$prenom', '$nom', '$email', '$mdp', '$ville', '$rue', '$codepostale', '$pays', '$photo', '$accreditation') ";
-    $res= mysqli_query($id, $req);
-
+    $conecte =$id->prepare("insert into users values (NULL, '$prenom', '$nom', '$email', '$mdp', '$ville', '$rue', '$codepostale', '$pays', '$photo', '$accreditation')");
+    $conecte->execute();
 
     echo"<h1> inscription réussi! </h1>";
     header("refresh:2; url=museeCON.php");
