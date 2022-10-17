@@ -41,7 +41,31 @@ class annonce
 
   }
 
-  function get_annonce($db) {
+class user 
+{
+    // Properties
+    public $mial;
+    public $annonces; /* on  mets l'id des annonces qui lui appartient ?*/
+    public $nom;
+    public $prenom;
+    private $id; /* peut etre pas une bonne idée de mettre l'id en public, idk */
+  
+    // Methods
+    /*permet d'instancier une nouveau user, peut etre mettre du SQL plus tard pour mettre dans la bdd ?*/
+    function set_annonce($mial, $annonces, $nom, $prenom, $id) {
+      $this->mial = $mial;
+      $this->annonces = $annonces;
+      $this->nom = $nom;
+      $this->prenom = $prenom;
+      $this->id = $id;
+
+    }
+  }
+
+
+  /*renvoie un tableau des annonces*/
+  function get_annonce($db) 
+  {
     $annonce_db = $db->prepare('SELECT * FROM annonces');
     $annonce_db->execute();
     $annonces_recup = $annonce_db->fetchAll();
@@ -54,11 +78,20 @@ class annonce
         $annonce_class[$k]->set_annonce($annonces_recup[$k]['titre'],$annonces_recup[$k]['prix'],$annonces_recup[$k]['description'],$annonces_recup[$k]['categories'],$annonces_recup[$k]['id'],);
     }
     return $annonce_class; /*et hop c'est lets go*/
-    /*la on mettra les requete SQL qui corresponde
-      peut etre retourner un tableau de classe ?*/
-
   }
   
+
+  function supr_annonce($annonce)
+  {
+    /*a faire*/
+  }
+
+  function modif_annonce($annonce, $colonne, $valeur)
+  {
+    /*a faire*/
+  }
+
+
 
   /*
   $annonce1 = new annonce();
