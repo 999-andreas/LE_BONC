@@ -52,7 +52,6 @@ class annonce
     {
         $annonce_class[] = new annonce();
         $annonce_class[$k]->set_annonce($annonces_recup[$k]['titre'],$annonces_recup[$k]['prix'],$annonces_recup[$k]['description'],$annonces_recup[$k]['categories'],$annonces_recup[$k]['id'],);
-
     }
     return $annonce_class; /*et hop c'est lets go*/
     /*la on mettra les requete SQL qui corresponde
