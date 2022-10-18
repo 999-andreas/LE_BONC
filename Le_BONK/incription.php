@@ -4,7 +4,7 @@ session_start();
 if(isset($_POST["valider"])) {
     extract($_POST);
     $id = new PDO(
-        'mysql:host=localhost;dbname=;charset=utf8',
+        'mysql:host=localhost;dbname=lebonkdb;charset=utf8',
         'root',
         ''
     );
