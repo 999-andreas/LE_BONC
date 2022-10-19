@@ -61,9 +61,9 @@ class annonce
     return $annonce_class;
   }
 
-  function send_annonce($annonce, $db)
+  function send_annonce($db)
   {
-    $annonce_db = $db->prepare("insert into annonce values (NULL, '$annonce[0]', '$annonce[1]', '$annonce[2]', '$annonce[3]', '$annonce[4]', '$annonce[5]')");
+    $annonce_db = $db->prepare("insert into annonce values (NULL, '$titre', '$prix', '$description', '$photo', '$_SESSION[$id_user]', '$categorie')");
     $annonce_db->execute();
   }
   

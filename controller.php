@@ -1,31 +1,16 @@
 <?php
 require "modele.php";
-/*
-$annonces = [];
 
-$annonces = get_annonce($db);
-
-
-$description = "non";
-$id = 14;
-
-$annonces[$id]->description = $description;
-
-modif_annonce($db, $id, $annonces[$id]);
+var_dump($_POST);
+$id_user = 83;
 
 
 
-var_dump($annonces);
-*/
-
-$cate = ['emploi','véhicules','immobilier','mode','maison','multimédia','loisirs','animaux','matériel professionnel','services','autres'];
-foreach($cate as $value)
-{
-    $annonce_db = $db->prepare("insert into categorie, values (NULL, '$value')");
-    $annonce_db->execute();
-}
+$annonce = [$_POST['titre'], $_POST['prix'], $_POST['description'], $_POST['photo'], $id_user, (int)$_POST['categories']];
 
 
+$annonce_db = $db->prepare("insert into annonce values (NULL, '$annonce[0]', '$annonce[1]', '$annonce[2]', '$annonce[3]', '$annonce[4]', '$annonce[5]')");
+$annonce_db->execute();
 
 
 ?>   

@@ -17,16 +17,16 @@
     <form action="controller.php" method="post">
 
       <input type="text" id="titre" name="titre", placeholder="titre :" required> *<br><br>
-      <input type="text" id="prix" name="prix", placeholder="prix :" required> *<br><br>
+      <input type="text" id="prix" name="prix", placeholder="prix :" required> *<br><br> <!-- faire un petit slider-->
     
       <!-- <input type="checkbox" name="Assurance" value="assurance"><br><br> -->
 
-      <input type="file" id = "test" name="test" value="assurance"><br><br>
+      <input type="file" id = "photo" name="photo" value="photo"><br><br>
 
       <fieldset><legend>categorie </legend>
         selectionner votre categorie
         <select name="categories">
-        <option value="autres">autres</option>
+        <option value int = 0 >autre</option>
         <option value="emploi">emploi</option>
         <option value="véhicule">véhicule</option>
         <option value="immobilier">immobilier</option>
