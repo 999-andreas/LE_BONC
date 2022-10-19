@@ -5,7 +5,6 @@
 try
 {
     $db = new PDO('mysql:host=localhost;dbname=lebonkdb;charset=utf8','root','');
-    echo "vous êtes connecté";
 }
 catch (Exception $e)
 {
