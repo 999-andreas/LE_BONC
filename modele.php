@@ -21,52 +21,33 @@ je sais pas comment on relie les different pages a des fonctions dans le control
 class annonce 
 {
     // Properties
-    public $titre;
-    public $prix;
-    public $description;
-    public $categories;
-    private $id; /* peut etre pas une bonne idée de mettre l'id en public, idk */
+    public int $id_annonce;
+    public string $titre;
+    public int $prix;
+    public string $description;
+    public int $id_user; /* peut etre pas une bonne idée de mettre l'id en public, idk */
+    public int $id_cat;
+    public string $photo;
   
     // Methods
     /*permet d'instancier une nouvelle annonce, peut etre mettre du SQL plus tard pour mettre dans la bdd ?*/
-    function set_annonce($titre, $prix, $description, $categories, $id) {
+    function set_annonce($id_annonce, $titre, $prix, $description, $photo, $id_user, $id_cat) {
+      $this->id_annonce = $id_annonce;
       $this->titre = $titre;
       $this->prix = $prix;
       $this->description = $description;
-      $this->categories = $categories;
-      $this->id = $id;
-
+      $this->id_cat = $id_cat;
+      $this->id_user = $id_user;
+      $this->photo = $photo;
     }
     /*donne sous forme de liste tout les elements d'une annonce*/
 
   }
 
-class user 
-{
-    // Properties
-    public $mial;
-    public $annonces; /* on  mets l'id des annonces qui lui appartient ?*/
-    public $nom;
-    public $prenom;
-    private $id; /* peut etre pas une bonne idée de mettre l'id en public, idk */
-  
-    // Methods
-    /*permet d'instancier une nouveau user, peut etre mettre du SQL plus tard pour mettre dans la bdd ?*/
-    function set_annonce($mial, $annonces, $nom, $prenom, $id) {
-      $this->mial = $mial;
-      $this->annonces = $annonces;
-      $this->nom = $nom;
-      $this->prenom = $prenom;
-      $this->id = $id;
-
-    }
-  }
-
-
   /*renvoie un tableau des annonces*/
   function get_annonce($db) 
   {
-    $annonce_db = $db->prepare('SELECT * FROM annonces');
+    $annonce_db = $db->prepare('SELECT * FROM annonce');
     $annonce_db->execute();
     $annonces_recup = $annonce_db->fetchAll();
 
@@ -75,20 +56,28 @@ class user
     for($k=0;$k<count($annonces_recup);$k+=1)
     {
         $annonce_class[] = new annonce();
-        $annonce_class[$k]->set_annonce($annonces_recup[$k]['titre'],$annonces_recup[$k]['prix'],$annonces_recup[$k]['description'],$annonces_recup[$k]['categories'],$annonces_recup[$k]['id'],);
+        $annonce_class[$k]->set_annonce($annonces_recup[$k]['id_annonce'], $annonces_recup[$k]['titre'],$annonces_recup[$k]['prix'],$annonces_recup[$k]['description'],$annonces_recup[$k]['photo'],$annonces_recup[$k]['id_user'],$annonces_recup[$k]['id_cat'],);
     }
-    return $annonce_class; /*et hop c'est lets go*/
+    return $annonce_class;
+  }
+
+  function send_annonce($annonce, $db)
+  {
+    $annonce_db = $db->prepare("insert into annonce values (NULL, '$annonce[0]', '$annonce[1]', '$annonce[2]', '$annonce[3]', '$annonce[4]', '$annonce[5]')");
+    $annonce_db->execute();
   }
   
 
-  function supr_annonce($annonce)
+  function supr_annonce($db, $id)
   {
-    /*a faire*/
+    $annonce_db = $db->prepare("DELETE FROM annonce WHERE id_annonce = $id");
+    $annonce_db->execute();
   }
 
-  function modif_annonce($annonce, $colonne, $valeur)
+  function modif_annonce($db, $id, $annonce)
   {
-    /*a faire*/
+    $annonce_db = $db->prepare("UPDATE annonce SET titre = $annonce->titre, prix = $annonce->prix, description = $annonce->description, id_cat = $annnonce->id_cat");
+    $annonce_db->execute();
   }
 
 

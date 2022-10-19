@@ -6,14 +6,18 @@ $annonces = [];
 $annonces = get_annonce($db);
 
 
+$description = "non";
+$id = 14;
 
-for($k=0;$k<count($annonces);$k++)
-{
-    $titre = $annonces[$k]->titre;
-    $description = $annonces[$k]->description;
-    include "vue.php";
-}
+$annonces[$id]->description = $description;
 
-#var_dump($annonces);
+modif_annonce($db, $id, $annonces[$id]);
+
+
+
+var_dump($annonces);
+
+
+
 
 ?>   
