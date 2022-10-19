@@ -51,18 +51,18 @@ if (isset($_POST["confirmer"])) {
 </head>
 <header>
   <div class="header">
-    <a href="accueil (1).html">
+    <a href="accuille.html">
       <img src="logo.png" alt="acceuil" style="width:60px">
     </a>
-      <a href="accueil (1).html">Acceuil</a>
-      <a href="Visite.php">Visite</a>
-      <a href="Billeterie.php">Billeterie</a>
+      <a href=>LE BONK</a>
+      <a href="accuille.php">Acceuil</a>
       <a href="contact.php">contact</a>
-      <a href="museeCON.php">connexion</a>
-      <a href="museeINSC.php">inscription</a>
+      <a href="conection.php">connexion</a>
+      <a href="incription.php">inscription</a>
       <a href="déconnexion.php">Deconnexion</a>
+      <a href="conection.php"><img src="" alt=""></a>
   <div>
-<header>
+  </header>
 <body>
    <div class="container">
       <form action="" method="post">

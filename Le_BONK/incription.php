@@ -29,6 +29,20 @@ if(isset($_POST["valider"])) {
     <link rel=Stylesheet type="text/css" href=style.css>
     <title>Document</title>
 </head>
+<header>
+  <div class="header">
+    <a href="accuille.html">
+      <img src="logo.png" alt="acceuil" style="width:60px">
+    </a>
+      <a href=>LE BONK</a>
+      <a href="accuille.php">Acceuil</a>
+      <a href="contact.php">contact</a>
+      <a href="conection.php">connexion</a>
+      <a href="incription.php">inscription</a>
+      <a href="déconnexion.php">Deconnexion</a>
+      <a href="conection.php"><img src="" alt=""></a>
+  <div>
+  </header>
 
 <body>
 
