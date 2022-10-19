@@ -26,17 +26,17 @@
       <fieldset><legend>categorie </legend>
         selectionner votre categorie
         <select name="categories">
-        <option value int = 0 >autre</option>
-        <option value="emploi">emploi</option>
-        <option value="véhicule">véhicule</option>
-        <option value="immobilier">immobilier</option>
-        <option value="mode">mode</option>
-        <option value="maison">maison</option>
-        <option value="multimédia">multimédia</option>
-        <option value="loisirs">loisirs</option>
-        <option value="animaux">animaux</option>
-        <option value="matériel pro">matériel pro</option>
-        <option value="services">services</option>
+        <option value=1>emploi</option>
+        <option value=2>véhicule</option>
+        <option value=3>immobilier</option>
+        <option value=4>mode</option>
+        <option value=5>maison</option>
+        <option value=6>multimédia</option>
+        <option value=7>loisirs</option>
+        <option value=8>animaux</option>
+        <option value=9>matériel pro</option>
+        <option value=10>services</option>
+        <option value=11>divers</option>
         </select><br><br></fieldset><br><br>
 
       <textarea name="description" id="" cols="30" rows="8", placeholder="description :"></textarea>*<br><br>
