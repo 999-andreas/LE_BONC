@@ -10,7 +10,7 @@ if (isset($_POST["confirmer"])) {
     );
     $conecte =$id->prepare("select* from users where email='$email' and mdp='$mdp' ");
     $conecte->execute();
-    $res=$conecte->fetchALL();
+    $res=$conecte->fetchA();
 
     //variable de session qu'on va reprendre tout au long du projet!
     $_SESSION=mysqli_fetch_assoc($res);

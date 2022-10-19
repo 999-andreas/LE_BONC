@@ -1,0 +1,44 @@
+header{
+  background-color: rgb(37, 133, 158);
+  position: absolute;
+  border-bottom: 600px;
+ border-right: 600px;
+ right: 0%;
+ left: 0%;
+ 
+ }
+ 
+ .header a {
+     float: left;
+     color: rgb(9, 6, 6);
+     text-align: center;
+     padding: 10px;
+     text-decoration: none;
+     font-size: 25px;
+     line-height: 25px;
+     border-radius: 6px;
+    font-style: oblique;
+     
+   }
+   body{
+     background-image: url(fond.jpg);
+     margin: 0px;
+     
+ }
+ a{
+   color: rgb(4, 5, 6);
+ }
+ textarea{
+   margin-bottom: auto;
+ }
+ p{
+   color: rgb(0, 0, 0);
+   text-align: left;
+   position: absolute;
+   bottom: 750px;
+   font-style: oblique;
+   font-size: 20px;
+ }
+ .her{
+  align-items: left;
+ }
