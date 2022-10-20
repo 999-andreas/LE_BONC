@@ -11,7 +11,7 @@
     </head>
     <body>
 
-        <select name="Activité">
+        <select name="correspondant">
         <?php
         $user_nom="Wellers";
         $user_prenom="Antoine";
@@ -30,5 +30,3 @@
 
     </body>
     </html>
-    
-?>
