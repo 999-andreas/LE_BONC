@@ -25,18 +25,37 @@
                 <input type="text" name="nom" placeholder="Entrez votre nom : " required> * <br><br>
                 <textarea name="message" placeholder="Messages" cols="30" rows="10"></textarea><br><br>
 
+                <?php
+                        $user_nom="Wellers";
+                        $user_prenom="Antoine";
+                        //$user_prenom=$_SESSION["prenom"];
+                        //$user_nom=$_SESSION["nom"];
+                        $req = "SELECT * FROM users WHERE prenom='$user_prenom'";
+                        $liste_conv = $db->prepare($req);
+                        $liste_conv->execute();
+                        $recup_liste=$liste_conv->fetchAll();
+                        foreach ($recup_liste as $correspondant)
+                        {
+                            ?>
+                                <?php echo $correspondant["prenom"]; ?>
+                        <?php
+                        }
+                        ?>    
                 <fieldset><legend>niveau </legend>
                     selectionner votre niveau
                     <select name="niveau">
                     <?php
+
                         $user_prenom=$_SESSION["prenom"];
                         $user_nom=$_SESSION["nom"];
-                        $req = "SELECT prenom, nom FROM users WHERE 'prenom'=$user_prenom and nom=$user_nom";
-                        $res = mysqli_query($id,$req);
-                        while($ligne = mysqli_fetch_assoc($res))
+                        $req = "SELECT prenom, nom, email FROM users WHERE 'prenom'='$user_prenom' AND nom='$user_nom'";
+                        $liste_conv = $db->prepare($req);
+                        $liste_conv->execute();
+                        $recup_liste=$liste_conv->fetchAll();
+                        foreach ($recup_liste as $correspondant)
                         {
-                 
-                        ?>
+                                echo '<option value="' . $correspondant['prenom'] . '">' . $correspondant['nom'] . " " . $correspondant['email'] . '</option>';?>
+
                     <option value="bac">bac general</option>
                     <option value="bac +1">bac +1</option>
                     <option value="bac +2">bac +2</option>
