@@ -3,7 +3,7 @@
 require "co_PDO.php";
 
 /*A FAIRE :
-    interface modification 
+    interface modification
     interface suppr
     barre de recherche AJAX
     blinder les saisi (fichier particuliement)
@@ -79,6 +79,67 @@ class annonce
     $annonce_db = $db->prepare("UPDATE annonce SET titre = $annonce->titre, prix = $annonce->prix, description = $annonce->description, id_cat = $annnonce->id_cat");
     $annonce_db->execute();
   }
+
+  function traitement_fichier()
+  {
+    /*on defini ou le fichier vas etre stocké*/
+    $target_dir = "photos/";
+    $target_file = $target_dir . basename($_FILES["photo"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+    /*on test si le fichier existe déjà*/
+    if (file_exists($target_file)) {
+      echo "Sorry, file already exists.";
+      $uploadOk = 0;
+    }
+
+
+
+    $extensions = array('jpg', 'png', 'jpeg');
+    
+    /*on test si le fichier est set et si il n'y a pas d'erreur*/
+    if (isset($_FILES['photo']) && !$_FILES['photo']['error']) 
+    {
+      $fileInfo = pathinfo($_FILES['photo']['name']);
+    
+      /*on test la taille de la photo*/
+      if ($_FILES['photo']['size'] <= 2000000) 
+      {
+        /* on test si le fichier est du bon type*/
+        if (in_array($fileInfo['extension'], $extensions)) 
+        {
+          echo "le fichier est good";
+          /* renvoyer vers l'acceuil ou vers la page de l'annonce*/
+        } 
+        else 
+        {
+          echo 'Ce type de fichier est interdit';
+          header("Location: vue_ajout_annonce.html");
+          exit();
+        }
+      } 
+      else 
+      {
+        echo 'Le fichier dépasse la taille autorisée';
+        header("Location: vue_ajout_annonce.html");
+        exit();
+      }
+    } 
+    else 
+    {
+      echo 'Une erreur est survenue lors de l\'envoi du fichier';
+      header("Location: vue_ajout_annonce.html");
+      exit();
+    }
+
+    if (move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file)) {
+      echo "Le fichier ". htmlspecialchars( basename( $_FILES["photo"]["name"])). " a été recup";
+    } else {
+      echo "c'est cassé";
+    }
+  }
+
 
 
 
