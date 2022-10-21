@@ -6,7 +6,7 @@ var_dump($_POST);
 var_dump($_FILES);
 var_dump(pathinfo($_FILES['photo']['name']));
 
-$id_user = 83;
+$id_user = 83; /* à changer avec l'id dans $_SESSION*/
 
 traitement_fichier();
 

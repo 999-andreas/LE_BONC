@@ -3,10 +3,9 @@
 require "co_PDO.php";
 
 /*A FAIRE :
-    interface modification
+    update aussi le fichier photo
     interface suppr
     barre de recherche AJAX
-    blinder les saisi (fichier particuliement)
 
     fonction pour :
       trié les annonces selon des critères(prix, categorie)
@@ -58,6 +57,17 @@ class annonce
     return $annonce_class;
   }
 
+  function get_1annonce($id, $db)
+  {
+    $annonce_db = $db->prepare("SELECT * FROM annonce WHERE id_annonce = $id");
+    $annonce_db->execute();
+    $annonces_recup = $annonce_db->fetchAll();
+
+    $annonce_class = new annonce();
+    $annonce_class->set_annonce($annonces_recup[0]['id_annonce'], $annonces_recup[0]['titre'],$annonces_recup[0]['prix'],$annonces_recup[0]['description'],$annonces_recup[0]['photo'],$annonces_recup[0]['id_user'],$annonces_recup[0]['id_cat'],);
+    return $annonce_class;
+  }
+
   /*envoie d'un nouvelle enregristrement dans la table annonce*/
   function send_annonce2($titre,$prix,$description,$photo,$id_user,$id_cat, $db)
   {
@@ -74,10 +84,11 @@ class annonce
 
 
   /*on modifie le tableau de class annonce puis on update la db*/
-  function modif_annonce($db, $id, $annonce)
+  function modif_annonce($id_annonce, $titre,$prix,$description,$photo,$id_cat, $db)
   {
-    $annonce_db = $db->prepare("UPDATE annonce SET titre = $annonce->titre, prix = $annonce->prix, description = $annonce->description, id_cat = $annnonce->id_cat");
-    $annonce_db->execute();
+    $annonce_db = $db->prepare("UPDATE annonce SET titre = '$titre', prix = '$prix', description = '$description', photo = '$photo', id_cat = '$id_cat' WHERE id_annonce = '$id_annonce' ");
+    $annonce_db->execute(); 
+    echo "HELLO";
   }
 
   function traitement_fichier()
@@ -138,6 +149,15 @@ class annonce
     } else {
       echo "c'est cassé";
     }
+  }
+
+  function get_categorie($db)
+  {
+    $categorie_db = $db->prepare("SELECT * FROM categorie");
+    $categorie_db->execute();
+    $categorie_recup = $categorie_db->fetchAll();
+
+    return $categorie_recup;
   }
 
 
