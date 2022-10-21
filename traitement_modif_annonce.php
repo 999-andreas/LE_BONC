@@ -9,19 +9,18 @@ var_dump($_POST);
 var_dump($annonce);
 var_dump($_FILES);
 
-$photo = $annonce->photo;
-
 if($_FILES["photo"]["name"]== "")
 {
+    $photo = $annonce->photo;
     echo "hello";
-    modif_annonce(18, $_POST['titre'],(int)$_POST['prix'],$_POST['description'],(string)$photo,(int)$_POST['categories'],$db);
 }
 else
 {
+    $photo = $_FILES['photo']['name'];
     echo "hello2";
-    /*aussi enregistrer la nouvelle photo*/
-    modif_annonce(18, $_POST['titre'],(int)$_POST['prix'],$_POST['description'],$_FILES['photo']['name'],(int)$_POST['categories'],$db);
+    traitement_fichier();
 }
 
+modif_annonce(18, $_POST['titre'],(int)$_POST['prix'],$_POST['description'],(string)$photo,(int)$_POST['categories'],$db);
 
 ?>
