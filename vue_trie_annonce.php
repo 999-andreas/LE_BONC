@@ -14,6 +14,7 @@ $annonces_recup = $annonce_db->fetchAll();
     <fieldset><legend>categorie </legend>
         selectionner votre categorie
         <select name="categories" >
+        <option value=0>aucune categorie</option>
         <option value=11>divers</option>  
         <option value=1>emploi</option>
         <option value=2>véhicule</option>

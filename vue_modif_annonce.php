@@ -1,7 +1,7 @@
 <?php 
 include "modele.php";
 $annonce = new annonce();
-$annonce = get_1annonce(18,$db);
+$annonce = get_1annonce(9,$db);
 /* faudra prendre l'id de l'annonce concerné*/
 
 $categories = get_categorie($db);
