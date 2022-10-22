@@ -63,13 +63,13 @@ if (isset($_POST["confirmer"])) {
         </div>
         
         <ul class="menu">
-        <li><a href="accuille.php">acceuil</a></li>
-        <li><a href="contact.php">contact</a></li>
-        <li><a href="CREAnnnonce.php">annonce</a></li>
-        <li><a class="btn" href="conection.php">connection</a></li>
-        <li><a class="btn-btn" href="incription.php">inscription</a></li>
-        <li><a class="btn-btn" href="deconection.php">deconection</a></li>
-        <li><a href="#"><img src="" alt=""></a></li>
+        <li><a href="accuille.php">acceuil</a></li>&nbsp;&nbsp;
+        <li><a href="contact.php">contact</a></li>&nbsp;&nbsp;
+        <li><a href="CREAnnnonce.php">annonce</a></li>&nbsp;&nbsp;
+        <li><a class="btn" href="conection.php">connection</a></li>&nbsp;
+        <li><a class="btn-btn" href="incription.php">inscription</a></li>&nbsp;
+        <li><a class="btn-btn" href="deconection.php">deconection</a></li>&nbsp;&nbsp;
+        <li><a href="#"><img src="" alt=""></a></li>&nbsp;&nbsp;
         
 
         </ul>
