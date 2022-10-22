@@ -40,7 +40,7 @@ class annonce
   }
 
   /*recup toutes les annonces de la db et renvoie sous forme de tableau de class annonce*/
-  function get_annonce($db, $id_cat) 
+  function get_annonce($db, $id_cat, $prix_min, $prix_max) 
   {
     if($id_cat==0)
     {
@@ -49,7 +49,7 @@ class annonce
     }
     else
     {
-      $annonce_db = $db->prepare("SELECT * FROM annonce WHERE id_cat = $id_cat");
+      $annonce_db = $db->prepare("SELECT * FROM annonce WHERE id_cat = $id_cat AND prix<'$prix_max' AND prix>'$prix_min'");
       $annonce_db->execute();
     }
 
