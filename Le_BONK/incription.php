@@ -8,7 +8,10 @@ if(isset($_POST["valider"])) {
         'root',
         ''
     );
-    
+    $nbmdp=strlen($mdp);
+    if($nbmdp<10){
+    echo"<h1> mot de passe trop cour + 10 caractere ! </h1>";}
+    else{
     //on definit l'accreditation ici pour éviter un probleme de "definition" qui bloquerait le script
     $accreditation = $_SESSION["accreditation"];
     //l'accreditation  est définie de maniere automatoque dans PHPmyadmin, donc on peut le laisser en NULL car non-saisie par l'user
@@ -16,7 +19,7 @@ if(isset($_POST["valider"])) {
     $conecte->execute();
 
     echo"<h1> inscription réussi! </h1>";
-    header("refresh:2; url=museeCON.php");
+    header("refresh:2; url=conection.php");}
 }
 
 ?>
