@@ -3,7 +3,6 @@
 require "co_PDO.php";
 
 /*A FAIRE :
-    update aussi le fichier photo
     interface suppr
     barre de recherche AJAX
 
@@ -57,6 +56,7 @@ class annonce
     return $annonce_class;
   }
 
+  /*recup l'annonce qui correspond a l'id*/
   function get_1annonce($id, $db)
   {
     $annonce_db = $db->prepare("SELECT * FROM annonce WHERE id_annonce = $id");
@@ -91,6 +91,7 @@ class annonce
     echo "HELLO";
   }
 
+  /*on test si le fichier est conforme et on l'enregistre*/
   function traitement_fichier()
   {
     /*on defini ou le fichier vas etre stocké*/
@@ -104,8 +105,6 @@ class annonce
       echo "Sorry, file already exists.";
       $uploadOk = 0;
     }
-
-
 
     $extensions = array('jpg', 'png', 'jpeg');
     
@@ -126,22 +125,19 @@ class annonce
         else 
         {
           echo 'Ce type de fichier est interdit';
-          header("Location: vue_ajout_annonce.html");
-          exit();
+          return 1;
         }
       } 
       else 
       {
         echo 'Le fichier dépasse la taille autorisée';
-        header("Location: vue_ajout_annonce.html");
-        exit();
+        return 2;
       }
     } 
     else 
     {
       echo 'Une erreur est survenue lors de l\'envoi du fichier';
-      header("Location: vue_ajout_annonce.html");
-      exit();
+      return 3;
     }
 
     if (move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file)) {
@@ -151,6 +147,7 @@ class annonce
     }
   }
 
+  /*recup de la table des categorie*/
   function get_categorie($db)
   {
     $categorie_db = $db->prepare("SELECT * FROM categorie");

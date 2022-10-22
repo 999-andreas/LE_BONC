@@ -18,8 +18,17 @@ else
 {
     $photo = $_FILES['photo']['name'];
     echo "hello2";
-    traitement_fichier();
+
+    /*on test si le fichier est bien conforme*/
+    $erreur = traitement_fichier();
+    if ($erreur)
+    {
+        echo $erreur;
+        header("Location: vue_modif_annonce.php");
+        exit();
+    }
 }
+
 
 modif_annonce(18, $_POST['titre'],(int)$_POST['prix'],$_POST['description'],(string)$photo,(int)$_POST['categories'],$db);
 
