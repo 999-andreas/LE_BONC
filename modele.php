@@ -40,10 +40,19 @@ class annonce
   }
 
   /*recup toutes les annonces de la db et renvoie sous forme de tableau de class annonce*/
-  function get_annonce($db) 
+  function get_annonce($db, $id_cat) 
   {
-    $annonce_db = $db->prepare('SELECT * FROM annonce');
-    $annonce_db->execute();
+    if($id_cat==0)
+    {
+      $annonce_db = $db->prepare('SELECT * FROM annonce');
+      $annonce_db->execute();
+    }
+    else
+    {
+      $annonce_db = $db->prepare("SELECT * FROM annonce WHERE id_cat = $id_cat");
+      $annonce_db->execute();
+    }
+
     $annonces_recup = $annonce_db->fetchAll();
 
     $annonce_class = [];
@@ -156,9 +165,6 @@ class annonce
 
     return $categorie_recup;
   }
-
-
-
 
   /*
   $annonce1 = new annonce();
