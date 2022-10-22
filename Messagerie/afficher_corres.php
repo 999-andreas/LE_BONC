@@ -13,12 +13,12 @@
 
         <select name="correspondant">
         <?php
-        $id_user=1;
+        (int)$id_user=1;
         $user_nom="Wellers";
         $user_prenom="Antoine";
         //$user_prenom=$_SESSION["prenom"];
         //$user_nom=$_SESSION["nom"];
-        $req = "SELECT prenom, nom, email FROM users,message WHERE message.id_receveur='$id_user' ";
+        $req ="SELECT users.prenom, users.nom, users.email FROM users,message WHERE message.id_receveur= $id_user ";
         $liste_conv = $db->prepare($req);
         $liste_conv->execute();
         $recup_liste=$liste_conv->fetchAll();
@@ -26,8 +26,12 @@
         {
             echo '<option value="correspondant">'. $correspondant['prenom']." " . $correspondant['nom'] . " " . $correspondant['email'] . '</option>';
         }
+
+        
         ?>
         </select>
-
+        <?php
+        var_dump($recup_liste);
+        ?>
     </body>
     </html>
