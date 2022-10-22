@@ -49,7 +49,7 @@ if (isset($_POST["confirmer"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="header.css">
 </head>
-<header>
+<<header>
     <nav>
         <div class="logo">
          <img src="lmd.png" alt="acceuil" style="width:60px">
@@ -61,17 +61,19 @@ if (isset($_POST["confirmer"])) {
         <i class="fas fa-bars ouvrir"></i>
         <i class="fas fa-times fermer"></i>
         </div>
+        
         <ul class="menu">
         <li><a href="accuille.php">acceuil</a></li>
         <li><a href="contact.php">contact</a></li>
         <li><a href="CREAnnnonce.php">annonce</a></li>
         <li><a class="btn" href="conection.php">connection</a></li>
         <li><a class="btn-btn" href="incription.php">inscription</a></li>
+        <li><a class="btn-btn" href="deconection.php">deconection</a></li>
         <li><a href="#"><img src="" alt=""></a></li>
         
 
         </ul>
-    
+      
     </nav>
 </header>
 <body>

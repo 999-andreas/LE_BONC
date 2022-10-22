@@ -42,6 +42,7 @@ $photo1="<img src=""lm.jpg"" alt="">"
         <li><a href="CREAnnnonce.php">annonce</a></li>
         <li><a class="btn" href="conection.php">connection</a></li>
         <li><a class="btn-btn" href="incription.php">inscription</a></li>
+        <li><a class="btn-btn" href="deconection.php">deconection</a></li>
         <li><a href="#"><img src="" alt=""></a></li>
         
 
