@@ -12,7 +12,7 @@ if(isset($_POST["valider"])) {
     //on definit l'accreditation ici pour éviter un probleme de "definition" qui bloquerait le script
     $accreditation = $_SESSION["accreditation"];
     //l'accreditation  est définie de maniere automatoque dans PHPmyadmin, donc on peut le laisser en NULL car non-saisie par l'user
-    $conecte =$id->prepare("insert into users values (NULL, '$prenom', '$nom', '$email', '$mdp', '$ville', '$rue', '$codepostale', '$pays', '$photo', '$accreditation')");
+    $conecte =$id->prepare("insert into users values (NULL, '$prenom', '$nom', '$email', md5('$mdp'), '$ville', '$rue', '$codepostale', '$pays', '$photo', '$accreditation')");
     $conecte->execute();
 
     echo"<h1> inscription réussi! </h1>";
@@ -27,23 +27,32 @@ if(isset($_POST["valider"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel=Stylesheet type="text/css" href=style.css>
-    <title>Document</title>
+    <link rel="stylesheet" href="header.css">
 </head>
 <header>
-  <div class="header">
-    <a href="accuille.html">
-      <img src="logo.png" alt="acceuil" style="width:60px">
-    </a>
-      <a href=>LE BONK</a>
-      <a href="accuille.php">Acceuil</a>
-      <a href="contact.php">contact</a>
-      <a href="conection.php">connexion</a>
-      <a href="incription.php">inscription</a>
-      <a href="déconnexion.php">Deconnexion</a>
-      <a href="conection.php"><img src="" alt=""></a>
-  <div>
-  </header>
+    <nav>
+        <div class="logo">
+         <img src="lmd.png" alt="acceuil" style="width:60px">
+         <a class ="logo" href=>LE BONK</a>
+         <a href="accuille.php">
 
+        </div>
+        <div class="toggle">
+        <i class="fas fa-bars ouvrir"></i>
+        <i class="fas fa-times fermer"></i>
+        </div>
+        <ul class="menu">
+        <li><a href="accuille.php">acceuil</a></li>
+        <li><a href="contact.php">contact</a></li>
+        <li><a href="CREAnnnonce.php">annonce</a></li>
+        <li><a class="btn" href="conection.php">connection</a></li>
+        <li><a class="btn-btn" href="incription.php">inscription</a></li>
+        <li><a href="#"><img src="" alt=""></a></li>
+        
+
+        </ul>
+    </nav>
+</header>
 <body>
 
     
