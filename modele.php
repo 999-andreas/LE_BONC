@@ -3,11 +3,13 @@
 require "co_PDO.php";
 
 /*A FAIRE :
-    interface suppr
-    barre de recherche AJAX
+    interface suppr, faire un pop up de confirmation
+    (barre de recherche AJAX)
 
     fonction pour :
-      trié les annonces selon des critères(prix, categorie)
+      trié les annonces selon des critères(prix, categorie)//fait
+      faire l'affichage des annonces en liste
+
 
 
 
