@@ -10,6 +10,8 @@
         <title>Document</title>
     </head>
     <body>
+
+        <select name="correspondant">
         <?php
         (int)$id_user=1;
         $user_nom="Wellers";
@@ -27,7 +29,7 @@
 
         
         ?>
-        
+        </select>
         <?php
         var_dump($recup_liste);
         ?>
