@@ -15,10 +15,9 @@ $photo1="<img src=""lm.jpg"" alt="">"
 */
 include "modele.php";
 
-$annonces = [];
-$annonces = get_annonce($db,0, 0, 1000000000000000000000);
-
-
+$annonce_db = $db->prepare("SELECT prix FROM annonce ORDER BY prix ASC");
+$annonce_db->execute();
+$annonces_recup = $annonce_db->fetchAll();
 
 ?>
 <!DOCTYPE html>
@@ -47,7 +46,7 @@ $annonces = get_annonce($db,0, 0, 1000000000000000000000);
         <ul class="menu">
         <li><a href="accuille.php">acceuil</a></li>&nbsp;&nbsp;
         <li><a href="contact.php">contact</a></li>&nbsp;&nbsp;
-        <li><a href="CREAnnnonce.php">annonce</a></li>&nbsp;&nbsp;
+        <li><a href="CREAnnonce.php">annonce</a></li>&nbsp;&nbsp;
         <li><a class="btn" href="conection.php">connection</a></li>&nbsp;
         <li><a class="btn-btn" href="incription.php">inscription</a></li>&nbsp;
         <li><a class="btn-btn" href="deconection.php">deconection</a></li>&nbsp;&nbsp;
@@ -59,12 +58,40 @@ $annonces = get_annonce($db,0, 0, 1000000000000000000000);
     </nav>
 </header>
 <body>
-    <h1><?php echo $valeur->titre." "; echo $valeur->prix." €"?></h1>
-    <img src="<?php echo "$source"?>" width="300" height="200">
+<form action="accuille.php" method="post">
 
-    <a href='vue_detail_annonce.php?id_annonce="<?php echo $valeur->id_annonce?>"'>
-    <input type="button" value="detail">
-    </a>
+<fieldset><legend>categorie </legend>
+    selectionner votre categorie
+    <select name="categories" >
+    <option value=0>aucune categorie</option>
+    <option value=11>divers</option>  
+    <option value=1>emploi</option>
+    <option value=2>véhicule</option>
+    <option value=3>immobilier</option>
+    <option value=4>mode</option>
+    <option value=5>maison</option>
+    <option value=6>multimédia</option>
+    <option value=7>loisirs</option>
+    <option value=8>animaux</option>    
+    <option value=9>matériel pro</option>
+    <option value=10>services</option>
+    </select><br><br></fieldset><br>
 
+    <label for="prix_min">prix min: </label>
+    <input type="number" id="prix_min" name="prix_min" min="<?=$annonces_recup[0]['prix']?>" placeholder="prix min:" value="<?=$annonces_recup[0]['prix']?>">
+
+    <label for="prix_max">prix max: </label>
+    <input type="number" id="prix_max" name="prix_max" max="<?=$annonces_recup[count($annonces_recup)-1]['prix']?>" placeholder="prix max:" value="<?=$annonces_recup[count($annonces_recup)-1]['prix']?>">
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+<?php
+$annonces = [];
+$annonces = get_annonce($db,(int)$_POST['categories'], (int)$_POST['prix_min'], (int)$_POST['prix_max']);
+foreach($annonces as $valeur)
+{
+   include"vue_liste_annonce.php";
+}
+?>
 </body>
 </html>
