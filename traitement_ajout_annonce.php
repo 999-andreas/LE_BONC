@@ -1,5 +1,5 @@
 <?php
-require "modele.php";
+include "modele.php";
 
 var_dump($_POST);
 

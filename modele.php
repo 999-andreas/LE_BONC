@@ -82,7 +82,7 @@ class annonce
   /*envoie d'un nouvelle enregristrement dans la table annonce*/
   function send_annonce2($titre,$prix,$description,$photo,$id_user,$id_cat, $db)
   {
-    $annonce_db = $db->prepare("insert into annonce values (NULL, '$titre', '$prix', '$description', '$photo', '$id_user', '$id_cat')");
+    $annonce_db = $db->prepare("INSERT INTO annonce VALUES (NULL, '$titre', '$prix', '$description', '$photo', '$id_user', '$id_cat')");
     $annonce_db->execute(); 
   }
   
