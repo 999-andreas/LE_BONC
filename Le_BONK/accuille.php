@@ -12,7 +12,15 @@ $res=$conecte->fetchALL();
 $photo1=$res
 if($_SESSION=="NUll")
 $photo1="<img src=""lm.jpg"" alt="">"
-*/?>
+*/
+include "modele.php";
+
+$annonces = [];
+$annonces = get_annonce($db,0, 0, 1000000000000000000000);
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +59,12 @@ $photo1="<img src=""lm.jpg"" alt="">"
     </nav>
 </header>
 <body>
-  
+    <h1><?php echo $valeur->titre." "; echo $valeur->prix." €"?></h1>
+    <img src="<?php echo "$source"?>" width="300" height="200">
+
+    <a href='vue_detail_annonce.php?id_annonce="<?php echo $valeur->id_annonce?>"'>
+    <input type="button" value="detail">
+    </a>
 
 </body>
 </html>
