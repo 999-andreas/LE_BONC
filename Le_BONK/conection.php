@@ -25,6 +25,7 @@ if (isset($_POST["confirmer"])) {
         //pour définir un admin il faut aller dans phpmyadmin et le faire à la main
         if ($_SESSION["accreditation"] == 0){ // le niveau 0 correspond aux clients
             echo"<h1> bienvenu $prenom ! </h1>";
+            
             header("refresh:2;url=accuille.php");
         } 
         //le niveau 2 se defini manuellement dans PHPmyadmin, il faut donc qu'un responsable aille mettre un "2" dans : "accreditation"
@@ -78,7 +79,7 @@ if (isset($_POST["confirmer"])) {
 </header>
 <body>
    <div class="container">
-      <form action="" method="post">
+   <form class="form" action="" method="post">
         <h1> connexion </h1>
     
         

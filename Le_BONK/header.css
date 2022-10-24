@@ -61,7 +61,7 @@ nav{
   font-size: 1rem;
   padding: 0.5rem 1rem;
 }
-form {
+.form {
   text-align: center;
   top: 5%; left: 4%; bottom: 25%;
   border-color:none;
@@ -92,4 +92,9 @@ form {
   -webkit-transform: translate(-50%, -50%);
   
 
+}
+
+div {
+  padding-top: 8em; 
+  margin-top: -8em; 
 }

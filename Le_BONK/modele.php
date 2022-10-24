@@ -46,7 +46,7 @@ class annonce
   {
     if($id_cat==0)
     {
-      $annonce_db = $db->prepare('SELECT * FROM annonce');
+      $annonce_db = $db->prepare("SELECT * FROM annonce WHERE prix<='$prix_max' AND prix>='$prix_min'");
       $annonce_db->execute();
     }
     else
