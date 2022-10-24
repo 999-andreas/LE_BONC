@@ -91,7 +91,7 @@ if (isset($_POST["confirmer"])) {
        
         <br><br>
        <h2> Pas de compte? </h2>
-        <a href="museeINSC.php"> inscrivez-vous! </a>
+        <a href="incription.php"> inscrivez-vous! </a>
       </form>
     </div>
 </body>

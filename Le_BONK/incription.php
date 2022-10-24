@@ -91,7 +91,7 @@ if(isset($_POST["valider"])) {
 
       <br><br>
       <h2> déjà un compte? </h2>
-      <a href="museeCON.php"> Connectez-vous! </a>
+      <a href="conection.php"> Connectez-vous! </a>
     </form>
 </body>
 </html>
