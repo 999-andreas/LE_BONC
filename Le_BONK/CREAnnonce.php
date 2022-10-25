@@ -3,11 +3,9 @@
 session_start();
 if(!isset($_SESSION['id_user']))
 {
-    header("location:conection.php");
+    header("location:vue_connexion.php");
 }
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,33 +17,7 @@ if(!isset($_SESSION['id_user']))
     <link rel="stylesheet" href="header.css">
     <title>Document</title>
 </head>
-<header>
-    <nav>
-        <div class="logo">
-         <img src="lmd.png" alt="acceuil" style="width:60px">
-         <a class ="logo" href=>LE BONK</a>
-         <a href="accuille.php">
-
-        </div>
-        <div class="toggle">
-        <i class="fas fa-bars ouvrir"></i>
-        <i class="fas fa-times fermer"></i>
-        </div>
-        
-        <ul class="menu">
-        <li><a href="accuille.php">acceuil</a></li>&nbsp;&nbsp;
-        <li><a href="contact.php">contact</a></li>&nbsp;&nbsp;
-        <li><a href="CREAnnonce.php">annonce</a></li>&nbsp;&nbsp;
-        <li><a class="btn" href="conection.php">connection</a></li>&nbsp;
-        <li><a class="btn-btn" href="incription.php">inscription</a></li>&nbsp;
-        <li><a class="btn-btn" href="deconection.php">deconection</a></li>&nbsp;&nbsp;
-        <li><a href="#"><img src="" alt=""></a></li>&nbsp;&nbsp;
-        
-
-        </ul>
-      
-    </nav>
-</header>
+<?php include "le_header.html"; ?>
 <body>
     <fieldset>
     <legend>informations de votre annonce : </legend>

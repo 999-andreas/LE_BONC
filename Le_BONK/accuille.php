@@ -1,19 +1,4 @@
-<?php /*session_start();
-if(isset($_POST["$_SESSION"])) { 
-extract($_POST);
-$id = new PDO(
-  'mysql:host=localhost;dbname=lebonkdb;charset=utf8',
-    'root',
-    ''
-);
-$conecte =$id->prepare("select photo from users where id_user=$_SESSION");
-$conecte->execute();
-$res=$conecte->fetchALL();
-$photo1=$res
-if($_SESSION=="NUll")
-$photo1="<img src=""lm.jpg"" alt="">"
-*/
-
+<?php 
 session_start();
 
 include "modele.php";
@@ -34,33 +19,7 @@ var_dump($_SESSION);
     <link rel=Stylesheet type="text/css" href=style.css>
     <link rel="stylesheet" href="header.css">
 </head>
-<header>
-    <nav>
-        <div class="logo">
-         <img src="lmd.png" alt="acceuil" style="width:60px">
-         <a class ="logo" href=>LE BONK</a>
-         <a href="accuille.php">
-
-        </div>
-        <div class="toggle">
-        <i class="fas fa-bars ouvrir"></i>
-        <i class="fas fa-times fermer"></i>
-        </div>
-        
-        <ul class="menu">
-        <li><a href="accuille.php">acceuil</a></li>&nbsp;&nbsp;
-        <li><a href="contact.php">contact</a></li>&nbsp;&nbsp;
-        <li><a href="CREAnnonce.php">annonce</a></li>&nbsp;&nbsp;
-        <li><a class="btn" href="vue_connexion.html">connection</a></li>&nbsp;
-        <li><a class="btn-btn" href="incription.php">inscription</a></li>&nbsp;
-        <li><a class="btn-btn" href="deconection.php">deconection</a></li>&nbsp;&nbsp;
-        <li><a href="#"><img src="" alt=""></a></li>&nbsp;&nbsp;
-        
-
-        </ul>
-      
-    </nav>
-</header>
+<?php include "le_header.html"; ?>
 
 <body>
     <form action="accuille.php" method="post">
