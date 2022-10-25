@@ -2,7 +2,7 @@
     session_start();
 
     //$id_connect= $_SESSION['id_users'];
-    (int)$id_connect=3; //on remplacera ceci par la variable SESSION une fois le code réuni
+    (int)$id_connect=$_SESSION['id_user']; //on remplacera ceci par la variable SESSION une fois le code réuni
     
     include("select_messages.php");   
     foreach ($recup_message as $message)
