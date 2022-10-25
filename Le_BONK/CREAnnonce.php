@@ -55,8 +55,12 @@ if(!isset($_SESSION['id_user']))
       <input type="submit" value="calculer">
       
     </fieldset>
-      
     </form>
-  
+
+    <form action="vue_liste_user_annonce.php" method="post">
+    <h3> déjà des annonces crées !</h3>
+    <a class="a-annonce" href="vue_liste_user_annonce.php"> modifier une annonce </a>
+    </form>
+    
   </body>
 </html>
