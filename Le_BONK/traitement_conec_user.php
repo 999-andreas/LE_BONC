@@ -12,16 +12,19 @@ $conecte =$db->prepare("SELECT * from users where email= '$email' and mdp=md5('$
 $conecte->execute();
 $res=$conecte->fetchALL();
 
-if(isset($res))
+
+if(!empty($res))
 {
     $_SESSION["id_user"]=$res[0]['id_users'];
-    var_dump($_SESSION);
-    header("refresh:2 ;url=accuille.php");
+    header("location:accuille.php");
+    exit();
 
 }
 else
 {
-    header("refresh:2 ;url=vue_connexion.php");
+    echo "<h1> mauvais mot de passe ou mail! </h1>";
+    header("refresh:3 ;url=vue_connexion.html");
+    exit();
 }
 //variable de session qu'on va reprendre tout au long du projet!
 

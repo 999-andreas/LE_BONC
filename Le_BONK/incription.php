@@ -9,8 +9,14 @@ if(isset($_POST["valider"])) {
         ''
     );
     $nbmdp=strlen($mdp);
-    if($nbmdp<10){
-    echo"<h1> mot de passe trop cour + 10 caractere ! </h1>";}
+    if($nbmdp<10)
+    { 
+        echo"<h1> mot de passe trop court + 10 caractere ! </h1>";
+        #echo "mauvais mot de passe ou mail";
+        header("refresh:3 ;url=inscription.php");
+        exit();
+       
+    }
     else{
     //on definit l'accreditation ici pour éviter un probleme de "definition" qui bloquerait le script
     $accreditation = 0 ;#$_SESSION["accreditation"];
@@ -50,7 +56,7 @@ if(isset($_POST["valider"])) {
         <li><a href="accuille.php">acceuil</a></li>&nbsp;&nbsp;
         <li><a href="contact.php">contact</a></li>&nbsp;&nbsp;
         <li><a href="CREAnnnonce.php">annonce</a></li>&nbsp;&nbsp;
-        <li><a class="btn" href="conection.php">connection</a></li>&nbsp;
+        <li><a class="btn" href="vue_connexion.html">connection</a></li>&nbsp;
         <li><a class="btn-btn" href="incription.php">inscription</a></li>&nbsp;
         <li><a class="btn-btn" href="deconection.php">deconection</a></li>&nbsp;&nbsp;
         <li><a href="#"><img src="" alt=""></a></li>
@@ -73,9 +79,9 @@ if(isset($_POST["valider"])) {
         <br><br>
         <input type="text" name="nom" placeholder="entrez un nom" required>
         <br><br>
-        <input type="text" name="email" placeholder="email" required>
+        <input type="email" name="email" placeholder="email" required>
         <br><br>
-        <input type="password" name="mdp" placeholder="mot de passe" required>
+        <input type="password" name="mdp" placeholder="mdp (+10 caractères)" required>
         <br><br>
         <input type="text" name="ville" placeholder="ville" required>
         <br><br>
@@ -91,7 +97,7 @@ if(isset($_POST["valider"])) {
 
       <br><br>
       <h2> déjà un compte? </h2>
-      <a href="museeCON.php"> Connectez-vous! </a>
+      <a href="vue_connexion.html"> Connectez-vous! </a>
     </form>
 </body>
 </html>

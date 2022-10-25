@@ -2,7 +2,6 @@
 include "modele.php";
 $id_annonce = $_GET["id_annonce"];
 
-
 ?>
 
 <!DOCTYPE html>
