@@ -1,7 +1,10 @@
 <?php
-session_start();
 
-var_dump($_SESSION[]);
+session_start();
+if(!isset($_SESSION['id_user']))
+{
+    header("location:conection.php");
+}
 ?>
 
 

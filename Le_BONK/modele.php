@@ -91,6 +91,8 @@ class annonce
   {
     $annonce_db = $db->prepare("DELETE FROM annonce WHERE id_annonce = $id");
     $annonce_db->execute();
+    echo "HELLO";
+
   }
 
 
