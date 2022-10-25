@@ -2,18 +2,6 @@
 
 require "co_PDO.php";
 
-/*A FAIRE :
-    interface suppr, faire un pop up de confirmation
-    (barre de recherche AJAX)
-
-    fonction pour :
-      trié les annonces selon des critères(prix, categorie)//fait
-      faire l'affichage des annonces en liste
-
-
-
-
-*/
 
 class annonce 
 {
@@ -22,7 +10,7 @@ class annonce
     public string $titre;
     public int $prix;
     public string $description;
-    public int $id_user; /* peut etre pas une bonne idée de mettre l'id en public, idk */
+    public int $id_user; 
     public int $id_cat;
     public string $photo;
   

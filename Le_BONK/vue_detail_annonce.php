@@ -20,39 +20,16 @@ $source = "photos/".$valeur->photo;
     <link rel="stylesheet" href="header.css">
     <title>details</title>
 </head>
-<header>
-    <nav>
-        <div class="logo">
-         <img src="lmd.png" alt="acceuil" style="width:60px">
-         <a class ="logo" href=>LE BONK</a>
-         <a href="accuille.php">
-
-        </div>
-        <div class="toggle">
-        <i class="fas fa-bars ouvrir"></i>
-        <i class="fas fa-times fermer"></i>
-        </div>
-        
-        <ul class="menu">
-        <li><a href="accuille.php">acceuil</a></li>&nbsp;&nbsp;
-        <li><a href="contact.php">contact</a></li>&nbsp;&nbsp;
-        <li><a href="CREAnnonce.php">annonce</a></li>&nbsp;&nbsp;
-        <li><a class="btn" href="conection.php">connection</a></li>&nbsp;
-        <li><a class="btn-btn" href="incription.php">inscription</a></li>&nbsp;
-        <li><a class="btn-btn" href="deconection.php">deconection</a></li>&nbsp;&nbsp;
-        <li><a href="#"><img src="" alt=""></a></li>&nbsp;&nbsp;
-        
-
-        </ul>
-      
-    </nav>
-</header>
+<?php include "le_header.html"; ?>
 <body>
-    <h1><?php echo $valeur->titre." "; echo $valeur->prix." €"?></h1>
-    <img src="<?php echo "$source"?>" width="300" height="200">
-    <p><?php echo $valeur->description?></p>
-    <a href='supr_annonce.php?id_annonce=<?php echo $id_annonce?>'>
-    <input type="button" value="supprimer l'annonce">
+    <div class="div">
+        <h1><?php echo $valeur->titre." "; echo $valeur->prix." €"?></h1>
+        <img src="<?php echo "$source"?>" width="300" height="200">
+        <p><?php echo $valeur->description?></p>
+        <a href='supr_annonce.php?id_annonce=<?php echo $id_annonce?>'>
+        <input type="button" value="supprimer l'annonce">
+    </div>
+    
 </body>
 </html> 
 

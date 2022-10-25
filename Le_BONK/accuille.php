@@ -22,9 +22,9 @@ var_dump($_SESSION);
 <?php include "le_header.html"; ?>
 
 <body>
-    <form action="accuille.php" method="post">
+    <form class="form" action="accuille.php" method="post">
 
-    <fieldset><legend>categorie </legend>
+    <fieldset><legend> </legend>
         selectionner votre categorie
         <select name="categories" >
         <option value=0>aucune categorie</option>
@@ -49,20 +49,21 @@ var_dump($_SESSION);
         <br><br>
         <input type="submit" value="afficher les annonces">
     </form>
-    <?php
-        if(!empty($_POST))
-        {
-            $annonces = [];
-            $annonces = get_annonce($db,(int)$_POST['categories'], (int)$_POST['prix_min'], (int)$_POST['prix_max']);
-            foreach($annonces as $valeur)
+    <div class="div">
+        <?php
+            if(!empty($_POST))
             {
-                include"vue_liste_annonce.php";
+                $annonces = [];
+                $annonces = get_annonce($db,(int)$_POST['categories'], (int)$_POST['prix_min'], (int)$_POST['prix_max']);
+                foreach($annonces as $valeur)
+                {
+                    include"vue_liste_annonce.php";
+                }
             }
-        }
-    ?>
-
-
+        ?>
+    </div>
     
+
 </body>
 </html>
 

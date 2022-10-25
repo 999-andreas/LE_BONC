@@ -14,7 +14,7 @@ $lien = $valeur->id_annonce;
     <link rel="stylesheet" href="header.css">
     <title>Document</title>
 </head>
-<div>
+<div class="div" >
     <h1><?php echo $valeur->titre." "; echo $valeur->prix." €"?></h1>
     <img src="<?php echo "$source"?>" width="300" height="200">
 

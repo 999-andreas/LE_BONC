@@ -22,7 +22,7 @@ if(!isset($_SESSION['id_user']))
     <fieldset>
     <legend>informations de votre annonce : </legend>
 
-    <form action="traitement_ajout_annonce.php" method="post" enctype="multipart/form-data" >
+    <form class="form" action="traitement_ajout_annonce.php" method="post" enctype="multipart/form-data" >
 
       <input type="text" id="titre" name="titre", placeholder="titre :" required> *
       <br><br>
@@ -53,7 +53,7 @@ if(!isset($_SESSION['id_user']))
 
       <input type="reset" value="effacer">
       <input type="submit" value="calculer">
-
+      
     </fieldset>
       
     </form>
@@ -61,7 +61,3 @@ if(!isset($_SESSION['id_user']))
     <!--<p>Read the <a href="https://www.mozilla.org/en-US/about/manifesto/">Mozilla Manifesto</a> to learn even more about the values and principles that guide the pursuit of our mission.</p>-->
   </body>
 </html>
-<?php
-
-var_dump($_SESSION);
-?>

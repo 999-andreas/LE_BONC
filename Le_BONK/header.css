@@ -78,23 +78,7 @@ nav{
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
 }
-.form-jh {
-  text-align: center;
-  border-color:none;
-  padding-bottom: -500px;
-  width: 350px;
-  height: auto;
-  position: absolute;
-  left: 50%;
-  top: 250%;
-  bottom: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  
 
-}
-
-div {
+.div {
   padding-top: 8em; 
-  margin-top: -8em; 
 }

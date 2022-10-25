@@ -18,8 +18,9 @@ if(isset($_POST["valider"])) {
     else{
     //on definit l'accreditation ici pour éviter un probleme de "definition" qui bloquerait le script
     $accreditation = 0 ;#$_SESSION["accreditation"];
+    $photo_defaut = "photo.png";
     //l'accreditation  est définie de maniere automatoque dans PHPmyadmin, donc on peut le laisser en NULL car non-saisie par l'user
-    $conecte =$id->prepare("insert into users values (NULL, '$prenom', '$nom', '$email', md5('$mdp'), '$ville', '$rue', '$codepostale', '$pays', '$photo', '$accreditation')");
+    $conecte =$id->prepare("insert into users values (NULL, '$prenom', '$nom', '$email', md5('$mdp'), '$ville', '$rue', '$codepostale', '$pays', '$photo_defaut', '$accreditation')");
     $conecte->execute();
 
     echo"<h1> inscription réussi! </h1>";
@@ -38,7 +39,7 @@ if(isset($_POST["valider"])) {
 </head>
 <?php include "le_header.html"; ?>
 <body>
-    <form class="form-jh" action="" method="post">
+    <form class="form" action="" method="post">
       <h1> inscription </h1>
         <input type="text" name="prenom" placeholder="entrez un prenom" required>
         <br><br>
@@ -55,8 +56,6 @@ if(isset($_POST["valider"])) {
         <input type="text" name="codepostale" placeholder="codepostale" required>
         <br><br>
         <input type="text" name="pays" placeholder="pays" required>
-        <br><br>
-        <input type="file" name="photo" value="photo" required>
         <br><br>
         <input type="submit" name="valider" value="valider">
 
