@@ -9,6 +9,7 @@ $valeur = new annonce();
 $valeur = get_1annonce($_GET["id_annonce"],$db);
 $source = "photos/".$valeur->photo;
 $id_user=$valeur->id_user;
+$id_connect= $_SESSION['id_users'];
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +35,10 @@ $id_user=$valeur->id_user;
         <input type="radio" id="non" name="choix" value="2">
         <label for="non">NON</label><br>
         <input type="submit" value="confirmer">
-        <?php include "Messagerie/envoyer_mess.html"?>
+        <?php include "Messagerie/envoyer_mess.html";
+            include("Messagerie/traitement_insert.php");
+        ?>
+
     </div>
     
 </body>
