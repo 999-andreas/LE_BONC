@@ -120,29 +120,29 @@ class annonce
         /* on test si le fichier est du bon type*/
         if (in_array($fileInfo['extension'], $extensions)) 
         {
-          echo "le fichier est good";
+          #echo "le fichier est good";
           /* renvoyer vers l'acceuil ou vers la page de l'annonce*/
         } 
         else 
         {
-          echo 'Ce type de fichier est interdit';
+          #echo 'Ce type de fichier est interdit';
           return 1;
         }
       } 
       else 
       {
-        echo 'Le fichier dépasse la taille autorisée';
+        #echo 'Le fichier dépasse la taille autorisée';
         return 2;
       }
     } 
     else 
     {
-      echo 'Une erreur est survenue lors de l\'envoi du fichier';
+      #echo 'Une erreur est survenue lors de l\'envoi du fichier';
       return 3;
     }
 
     if (move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file)) {
-      echo "Le fichier ". htmlspecialchars( basename( $_FILES["photo"]["name"])). " a été recup";
+      #echo "Le fichier ". htmlspecialchars( basename( $_FILES["photo"]["name"])). " a été recup";
     } else {
       echo "c'est cassé";
     }

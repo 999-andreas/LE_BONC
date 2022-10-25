@@ -4,10 +4,7 @@ include "modele.php";
 
 var_dump($_POST);
 
-var_dump($_FILES);
-var_dump(pathinfo($_FILES['photo']['name']));
-
-$id_user = $_SESSION["id_user"];
+$id_user = 84;#$_SESSION["id_user"];
 
 $erreur = traitement_fichier();
 
@@ -20,5 +17,6 @@ if ($erreur)
 
 send_annonce2($_POST['titre'],(int)$_POST['prix'],$_POST['description'],$_FILES['photo']['name'],$id_user,(int)$_POST['categories'],$db);
 
-
+#header("location:accuille.php");
+#exit();
 ?>   
