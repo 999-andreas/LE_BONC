@@ -8,6 +8,7 @@ $id_annonce =$_GET["id_annonce"];
 $valeur = new annonce();
 $valeur = get_1annonce($_GET["id_annonce"],$db);
 $source = "photos/".$valeur->photo;
+$id_user=$valeur->id_user;
 ?>
 
 <!DOCTYPE html>
