@@ -13,7 +13,7 @@ if(isset($_POST["valider"])) {
     echo"<h1> mot de passe trop cour + 10 caractere ! </h1>";}
     else{
     //on definit l'accreditation ici pour éviter un probleme de "definition" qui bloquerait le script
-    $accreditation = 0;
+    $accreditation = 0 ;#$_SESSION["accreditation"];
     //l'accreditation  est définie de maniere automatoque dans PHPmyadmin, donc on peut le laisser en NULL car non-saisie par l'user
     $conecte =$id->prepare("insert into users values (NULL, '$prenom', '$nom', '$email', md5('$mdp'), '$ville', '$rue', '$codepostale', '$pays', '$photo', '$accreditation')");
     $conecte->execute();
@@ -91,7 +91,7 @@ if(isset($_POST["valider"])) {
 
       <br><br>
       <h2> déjà un compte? </h2>
-      <a href="conection.php"> Connectez-vous! </a>
+      <a href="museeCON.php"> Connectez-vous! </a>
     </form>
 </body>
 </html>

@@ -46,7 +46,7 @@ class annonce
   {
     if($id_cat==0)
     {
-      $annonce_db = $db->prepare('SELECT * FROM annonce');
+      $annonce_db = $db->prepare("SELECT * FROM annonce WHERE prix<='$prix_max' AND prix>='$prix_min'");
       $annonce_db->execute();
     }
     else
@@ -79,7 +79,7 @@ class annonce
     return $annonce_class;
   }
 
-  /*envoie d'un nouvelle enregristrement dans la table annonce*/
+  /*envoie d'un nouvelle enregristrement dans la table annonce*//* ne pas mettre de ' dans les champs*/
   function send_annonce2($titre,$prix,$description,$photo,$id_user,$id_cat, $db)
   {
     $annonce_db = $db->prepare("insert into annonce values (NULL, '$titre', '$prix', '$description', '$photo', '$id_user', '$id_cat')");
@@ -91,6 +91,8 @@ class annonce
   {
     $annonce_db = $db->prepare("DELETE FROM annonce WHERE id_annonce = $id");
     $annonce_db->execute();
+    echo "HELLO";
+
   }
 
 
