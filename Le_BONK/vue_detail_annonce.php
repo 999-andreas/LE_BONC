@@ -26,10 +26,34 @@ $source = "photos/".$valeur->photo;
         <h1><?php echo $valeur->titre." "; echo $valeur->prix." €"?></h1>
         <img src="<?php echo "$source"?>" width="300" height="200">
         <p><?php echo $valeur->description?></p>
-        <a href='supr_annonce.php?id_annonce=<?php echo $id_annonce?>'>
-        <input type="button" value="supprimer l'annonce">
+        <form action="" method="post">
+        <p>êtes vous sûr de suprimer l'annonce ?</p>
+        <input type="radio" id="oui" name="choix" value="1">
+        <label for="oui">OUI</label><br>
+        <input type="radio" id="non" name="choix" value="2">
+        <label for="non">NON</label><br>
+        <input type="submit" value="confirmer">
     </div>
     
 </body>
 </html> 
+<?php 
+    if(isset($_POST['choix']))
+    {
+        if($_POST['choix']==1)
+        {
+            supr_annonce($db,$id_annonce);
+            header("location:accuille.php?>");
+            exit();
+        }
+        elseif($_POST['choix']==2)
+        {
+            header("location:accuille.php?>");
+            exit();
+
+        }
+    }
+        
+
+?>
 

@@ -48,16 +48,19 @@ if(!isset($_SESSION['id_user']))
         <option value=10>services</option>
         </select><br><br></fieldset><br>
 
-      <textarea name="description" id="" cols="30" rows="8", placeholder="description :"></textarea>*
+      <textarea name="description" id="" cols="30" rows="8", placeholder="description :" required></textarea>*
       <br><br>
 
       <input type="reset" value="effacer">
       <input type="submit" value="calculer">
       
     </fieldset>
-      
     </form>
-  
-    <!--<p>Read the <a href="https://www.mozilla.org/en-US/about/manifesto/">Mozilla Manifesto</a> to learn even more about the values and principles that guide the pursuit of our mission.</p>-->
+
+    <form action="vue_liste_user_annonce.php" method="post">
+    <h3> déjà des annonces crées !</h3>
+    <a class="a-annonce" href="vue_liste_user_annonce.php"> modifier une annonce </a>
+    </form>
+    
   </body>
 </html>

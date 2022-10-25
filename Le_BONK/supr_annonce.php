@@ -14,20 +14,27 @@ $id_annonce = $_GET["id_annonce"];
 </head>
 <body>
 <form action="supr_annonce.php" method="post">
-    <input type="checkbox" id="oui" name="oui" value="1" required>
-    <label for="oui"> êtes vous sûr de supprimer l'annonce ?</label><br>
-    <a href='vue_detail_annonce.php?id_annonce=<?php echo $id_annonce?>'>
-    <input type="button" value="annuler">
+    <p>êtes vous sûr de suprimer l'annonce ?</p>
+    <input type="radio" id="oui" name="choix" value="1">
+    <label for="oui">OUI</label><br>
+    <input type="radio" id="non" name="choix" value="2">
+    <label for="non">NON</label><br>
+
+
     <input type="submit" value="confirmer">
 </form>       
 <?php
-var_dump($_POST);
-if($_POST['oui']==1)
-{
-    supr_annonce($db,$_GET['id_annonce']);
-    header("location:accuille.php");
-    exit();
-}
+    if($_POST['choix']==1)
+    {
+        supr_annonce($db,$_GET['id_annonce']);
+        header("location:accuille.php");
+        exit();
+    }
+    elseif($_POST['choix']==2)
+    {
+        header("location:vue_detail_annonce.php?id_annonce=<?php echo $id_annonce?>");
+
+    }
 ?>
 
 
