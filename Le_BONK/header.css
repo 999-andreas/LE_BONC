@@ -38,8 +38,8 @@ nav{
   justify-content: space-between;
   align-items: center;
   list-style: none;
-  width: 500px;
-  padding-right: 10px;
+  width: 600px;
+  padding-right: 3%;
 }
 .menu li a {
   color: aliceblue;

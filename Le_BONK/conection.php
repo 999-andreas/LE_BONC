@@ -14,8 +14,8 @@ if (isset($_POST["confirmer"])) {
 
     //variable de session qu'on va reprendre tout au long du projet!
     $_SESSION=$res;
-    $prenom = $_SESSION["prenom"];
-    $accreditation = $_SESSION["accreditation"];
+    $prenom = $_SESSION['prenom'];
+    $accreditation = $_SESSION['accreditation'];
     
   
     // Si mdp/emil saisi -> correct par rapport à la BDD

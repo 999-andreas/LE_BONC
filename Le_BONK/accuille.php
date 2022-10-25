@@ -1,4 +1,5 @@
-<?php /*session_start();
+<?php
+/*
 if(isset($_POST["$_SESSION"])) { 
 extract($_POST);
 $id = new PDO(
@@ -40,6 +41,7 @@ $photo1="<img src=""lm.jpg"" alt="">"
         <li><a href="accuille.php">acceuil</a></li>&nbsp;&nbsp;
         <li><a href="contact.php">contact</a></li>&nbsp;&nbsp;
         <li><a href="CREAnnnonce.php">annonce</a></li>&nbsp;&nbsp;
+        <li><a href="recup_messages.php">Messagerie</a></li>&nbsp;&nbsp;
         <li><a class="btn" href="conection.php">connection</a></li>&nbsp;
         <li><a class="btn-btn" href="incription.php">inscription</a></li>&nbsp;
         <li><a class="btn-btn" href="deconection.php">deconection</a></li>&nbsp;&nbsp;
@@ -55,3 +57,5 @@ $photo1="<img src=""lm.jpg"" alt="">"
 
 </body>
 </html>
+
+
