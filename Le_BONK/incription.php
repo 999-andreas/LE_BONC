@@ -1,21 +1,26 @@
 <?php 
 session_start();
 
+include "modele.php";
+
 if(isset($_POST["valider"])) {
     extract($_POST);
-    $id = new PDO(
-        'mysql:host=localhost;dbname=lebonkdb;charset=utf8',
-        'root',
-        ''
-    );
+    
     $nbmdp=strlen($mdp);
-    if($nbmdp<10){
-    echo"<h1> mot de passe trop cour + 10 caractere ! </h1>";}
+    if($nbmdp<10)
+    { 
+        echo"<h1> mot de passe trop court + 10 caractere ! </h1>";
+        #echo "mauvais mot de passe ou mail";
+        header("refresh:3 ;url=inscription.php");
+        exit();
+       
+    }
     else{
     //on definit l'accreditation ici pour éviter un probleme de "definition" qui bloquerait le script
-    $accreditation = $_SESSION["accreditation"];
+    $accreditation = 0 ;#$_SESSION["accreditation"];
+    $photo_defaut = "photo.png";
     //l'accreditation  est définie de maniere automatoque dans PHPmyadmin, donc on peut le laisser en NULL car non-saisie par l'user
-    $conecte =$id->prepare("insert into users values (NULL, '$prenom', '$nom', '$email', md5('$mdp'), '$ville', '$rue', '$codepostale', '$pays', '$photo', '$accreditation')");
+    $conecte =$id->prepare("insert into users values (NULL, '$prenom', '$nom', '$email', md5('$mdp'), '$ville', '$rue', '$codepostale', '$pays', '$photo_defaut', '$accreditation')");
     $conecte->execute();
 
     echo"<h1> inscription réussi! </h1>";
@@ -32,50 +37,17 @@ if(isset($_POST["valider"])) {
     <link rel=Stylesheet type="text/css" href=style.css>
     <link rel="stylesheet" href="header.css">
 </head>
-<<header>
-<<header>
-    <nav>
-        <div class="logo">
-         <img src="lmd.png" alt="acceuil" style="width:60px">
-         <a class ="logo" href=>LE BONK</a>
-         <a href="accuille.php">
-
-        </div>
-        <div class="toggle">
-        <i class="fas fa-bars ouvrir"></i>
-        <i class="fas fa-times fermer"></i>
-        </div>
-        
-        <ul class="menu">
-        <li><a href="accuille.php">acceuil</a></li>&nbsp;&nbsp;
-        <li><a href="contact.php">contact</a></li>&nbsp;&nbsp;
-        <li><a href="CREAnnnonce.php">annonce</a></li>&nbsp;&nbsp;
-        <li><a class="btn" href="conection.php">connection</a></li>&nbsp;
-        <li><a class="btn-btn" href="incription.php">inscription</a></li>&nbsp;
-        <li><a class="btn-btn" href="deconection.php">deconection</a></li>&nbsp;&nbsp;
-        <li><a href="#"><img src="" alt=""></a></li>
-        
-
-        </ul>
-      
-    </nav>
-</header>
+<?php include "le_header.html"; ?>
 <body>
-
-
-    
-    
-    
-        
-    <form class="form-jh" action="" method="post">
+    <form class="form" action="" method="post">
       <h1> inscription </h1>
         <input type="text" name="prenom" placeholder="entrez un prenom" required>
         <br><br>
         <input type="text" name="nom" placeholder="entrez un nom" required>
         <br><br>
-        <input type="text" name="email" placeholder="email" required>
+        <input type="email" name="email" placeholder="email" required>
         <br><br>
-        <input type="password" name="mdp" placeholder="mot de passe" required>
+        <input type="password" name="mdp" placeholder="mdp (+10 caractères)" required>
         <br><br>
         <input type="text" name="ville" placeholder="ville" required>
         <br><br>
@@ -85,13 +57,11 @@ if(isset($_POST["valider"])) {
         <br><br>
         <input type="text" name="pays" placeholder="pays" required>
         <br><br>
-        <input type="file" name="photo" value="photo" required>
-        <br><br>
         <input type="submit" name="valider" value="valider">
 
       <br><br>
       <h2> déjà un compte? </h2>
-      <a href="museeCON.php"> Connectez-vous! </a>
+      <a href="vue_connexion.html"> Connectez-vous! </a>
     </form>
 </body>
 </html>

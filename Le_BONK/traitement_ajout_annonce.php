@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "modele.php";
 
 var_dump($_POST);
@@ -6,7 +7,7 @@ var_dump($_POST);
 var_dump($_FILES);
 var_dump(pathinfo($_FILES['photo']['name']));
 
-$id_user = 83; /* à changer avec l'id dans $_SESSION*/
+$id_user = $_SESSION["id_user"];
 
 $erreur = traitement_fichier();
 
