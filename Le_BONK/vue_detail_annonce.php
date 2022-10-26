@@ -36,8 +36,8 @@ $id_connect= $_SESSION['id_user'];
         <input type="radio" id="non" name="choix" value="2">
         <label for="non">NON</label><br>
         <input type="submit" value="confirmer">
-        <?php include "Messagerie/envoyer_mess.html";
-            include("Messagerie/traitement_insert.php");
+        <?php include "envoyer_mess.html";
+            include("traitement_insert.php");
         ?>
 
     </div>
