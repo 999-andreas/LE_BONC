@@ -23,7 +23,7 @@ if(!empty($res))
 else
 {
     echo "<h1> mauvais mot de passe ou mail! </h1>";
-    header("refresh:3 ;url=vue_connexion.html");
+    header("refresh:3 ;url=vue_connexion.php");
     exit();
 }
 //variable de session qu'on va reprendre tout au long du projet!

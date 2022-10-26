@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel=Stylesheet type="text/css" href=style.css>
+    <link rel="stylesheet" href="header.css">
+    <title>Document</title>
+</head>
+<body>
+    <?php include "../le_header.html";?>
+</body>
+
+</html>
+
 <?php
     session_start();
 
@@ -8,7 +24,7 @@
     foreach ($recup_message as $message)
     {
         ?>
-        <fieldset name="titre_annonce">
+        <fieldset name="titre_annonce" >
         <?php
             if ($message['id_auteur']!=$id_connect){
                 echo $message['prenom']. " ". $message['nom'];?> <br><br> <?php //si l'utilisateur connecté 
