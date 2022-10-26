@@ -9,7 +9,7 @@ $valeur = new annonce();
 $valeur = get_1annonce($_GET["id_annonce"],$db);
 $source = "photos/".$valeur->photo;
 $id_user=$valeur->id_user;
-$id_connect= $_SESSION['id_users'];
+$id_connect= $_SESSION['id_user'];
 ?>
 
 <!DOCTYPE html>
