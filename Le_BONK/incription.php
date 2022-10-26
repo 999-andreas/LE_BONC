@@ -20,7 +20,7 @@ if(isset($_POST["valider"])) {
     $accreditation = 0 ;#$_SESSION["accreditation"];
     $photo_defaut = "photo.png";
     //l'accreditation  est définie de maniere automatoque dans PHPmyadmin, donc on peut le laisser en NULL car non-saisie par l'user
-    $conecte =$id->prepare("insert into users values (NULL, '$prenom', '$nom', '$email', md5('$mdp'), '$ville', '$rue', '$codepostale', '$pays', '$photo_defaut', '$accreditation')");
+    $conecte =$db->prepare("insert into users values (NULL, '$prenom', '$nom', '$email', md5('$mdp'), '$ville', '$rue', '$codepostale', '$pays', '$photo_defaut', '$accreditation')");
     $conecte->execute();
 
     echo"<h1> inscription réussi! </h1>";
